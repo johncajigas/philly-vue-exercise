@@ -1,6 +1,6 @@
 # Software Engineering vue.js take home exercise
 
-We’ve prepared a small project that is related to the work you would be doing in this position, but slimmed down so that it takes a reasonable amount of time. You’ll have four days to complete the exercise, so you can work on it at your convenience.
+We’ve prepared a small project that is related to the work you would be doing in this position, but slimmed down so that it takes a reasonable amount of time. You’ll have four days to complete the exercise, so you can work on it at your convenience. We anticipate it should take you 3 - 4 hours to complete. 
 
 Feel free to use whatever tools you feel most comfortable with, and let us know if you have any clarifying questions. When you’re finished, add all the Vue.js code you wrote to a GitHub repository. Reviewers should be able to `npm install` on your project and run it locally.  
 
@@ -13,7 +13,7 @@ The designer on the project has created Axure prototypes that provide informatio
 
 
 ## Requirements & considerations
-- Use Vue.js to build two pages of this website (Home, and About). Users should be able to use the navigation in the top right corner to travel between pages.
+- Use Vue.js to build two pages of this website (Home, and About). Users should be able to use the navigation in the top right corner to travel between pages. The logo should link to the homepage.
 - Use a CSS framework. We've imported Bulma, but if you prefer something else, swap it out.
 - The content should stack on mobile (be mobile friendly).
 - Items that look like links can be empty <a> tags for this assignment, if a link wasn't provided in the endpoint.
