@@ -14,22 +14,21 @@ a {
 h1,h2,h3,h4,h5,nav {
   font-family: $header-family;
   color:$primary-color;
+  &:not(nav){
+    padding:13px;
+  }
 }
 h1 {
   font-size:$h1-size;
-  padding:13px;
 }
 h2 {
   font-size: $h2-size;
-  padding:13px;
 }
 h3 {
   font-size: $h3-size;
-  padding:13px;
 }
 h4 {
   font-size:$h4-size;
-  padding:13px;
 } 
 
 dt {
