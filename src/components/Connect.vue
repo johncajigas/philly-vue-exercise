@@ -30,8 +30,17 @@
                 <span v-else>
                     From {{hours[currentDay].start_time}} - {{hours[currentDay].end_time}}
                 </span>
+                <br/>
+                <br/>
+                    <a href="#">See all hours</a>
+                 
             </dd>
+        
           </dl>
+          
+         
+              
+           
         </div>
         <div class="column center">
 

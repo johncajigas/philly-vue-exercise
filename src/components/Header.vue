@@ -53,6 +53,9 @@ export default {
 </script>
 
 <style scoped>
+figure.image a {
+  display: inline-block;
+}
 .banner-image {
   max-width:200px; 
 

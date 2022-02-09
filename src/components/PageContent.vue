@@ -3,7 +3,9 @@
     v-bind:title="title"
     :heroImage="getSections.includes('phila_homepage_image')"
   />
-  <div class="container content-align">
+  
+  <div v-if="content !== ''" v-html="content" class="container content-align" />
+  <div v-if="getSections.length > 0" class="container content-align">
     <div v-if="getSections.includes('phila_connect')">
       <Connect />
     </div>
@@ -45,7 +47,7 @@ export default {
   props: {
     page_content: Array,
     title: String,
-    heroImage: Boolean,
+    content:String
   },
   computed: {
     getSections() {
