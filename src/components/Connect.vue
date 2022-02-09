@@ -104,7 +104,6 @@ export default {
         "https://locations-staging-admin.phila.gov/love-park/wp-json/locations/v1/connect",
         (data, err) => {
           if (err) return (this.error = err.toString());
-          console.log(data);
           this.address = data.address;
           this.contact = data.contact;
           this.hours = data.hours;

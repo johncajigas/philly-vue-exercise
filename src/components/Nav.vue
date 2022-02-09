@@ -61,7 +61,6 @@ export default {
         "https://locations-staging-admin.phila.gov/love-park/wp-json/menus/v1/menus/main-menu",
         (data, err) => {
           if (err) return (this.error = err.toString());
-          console.log(data);
           this.items = data.items;
         }
       );
