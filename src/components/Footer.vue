@@ -1,26 +1,28 @@
 <template>
-  <div>
-    <div class="columns">
-      <div class="column">
-        Address
-      </div>
-      <div class="column">
-        Hours
-      </div>
-      <div class="column">
-        Contact
-      </div>
-      </div>
-  </div>
+  <div class="footer bg-blue">
+    <Connect/>
+    <div class="bottom">This is an unofficial City of Philadelphia website. Visit <a href="#">phila.gov</a> for the full site experience.</div> 
+    </div>
 </template>
-
 <script>
-  export default {
-    name: 'Footer',
-    methods: {},
-    data() {
-      return {}
-    },
-    created() {}
+import Connect from '@/components/Connect.vue'
+export default {
+  name:'Footer',
+  components:{
+    Connect
   }
+}
 </script>
+
+<style scoped>
+.footer {
+
+position: relative;
+}
+ .bottom {
+   position:absolute;
+  bottom:0;
+  text-align: center;
+  width: 100%;
+ }
+</style>

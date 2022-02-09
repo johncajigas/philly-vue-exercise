@@ -1,5 +1,63 @@
 @import '~bulma';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@300;600&display=swap');
+@import './variables.scss';
 
+body {
+  color:$primary-color;
+  font-family:$body-family;
+  font-size:$paragraph-size;
+}
+a {
+  color:$secondary-color;
+  font-weight: bold;
+}
+h1,h2,h3,h4,h5,nav {
+  font-family: $header-family;
+  color:$primary-color;
+}
+h1 {
+  font-size:$h1-size;
+  padding:13px;
+}
+h2 {
+  font-size: $h2-size;
+  padding:13px;
+}
+h3 {
+  font-size: $h3-size;
+  padding:13px;
+}
+h4 {
+  font-size:$h4-size;
+  padding:13px;
+} 
+
+dt {
+  font-weight:bold;
+}
+dd {
+  font-weight:100;
+}
+p {
+  padding:13px;
+  line-height: 25px;
+
+}
+.see-all-link {
+  text-align: right;
+  margin-bottom:50px;
+}
+.bg-dark {
+  background-color:$dark-bg;
+}
+.bg-light {
+  background-color:$light-bg;
+}
+.social-icons {
+  display:flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
 .content-align {
   position: relative;
   top: -40px;
@@ -7,3 +65,14 @@
   border: 10px solid white;
   background: white;
 }
+.bg-blue {
+  background-color:$secondary-color;
+  color:$light;
+}
+.bg-blue a {
+  color:$light!important;
+}
+.bg-blue .connect .column{
+  border-color:$light!important;
+}
+

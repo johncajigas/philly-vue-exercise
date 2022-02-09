@@ -1,39 +1,54 @@
 <template>
-    <div class="home">
-      <Header></Header>
-    </div>
-
-    <div class="container content-align is-overlay">
-        <figure class="image">
-          <img src="../assets/images/love-park-hero.jpeg">
-        </figure>
-    </div>
-
+   <Header v-bind:bg_color="bg_color"></Header>
+   
+    <PageContent v-bind:page_content="page_content" v-bind:title="title"/>
+    <Footer/>
 </template>
 
 <script>
-  import Header from '@/views/Header.vue'
-
+  import Header from '@/components/Header.vue'
+  import Footer from '@/components/Footer.vue'
+  import PageContent from '@/components/PageContent.vue'
+  import {getPage} from '../api/request'
   export default {
-    name: 'About',
+    name: 'Home',
     components: {
-        Header
+        Header,
+        PageContent,
+        Footer,
+        
+    },
+    data(){
+      return {
+        loading:false,
+        title:null,
+        bg_color:null,
+        page_content:[],
+        content:null,
+        error:null
+      }
+    },
+    created(){
+       this.$watch(
+           ()=>this.$route.params,
+           ()=>{
+               this.fetchData()
+           },
+           {immediate:true}
+       )
+    },
+    methods : {
+      fetchData(){
+        this.loading = true;
+        getPage(4,(data,err)=>{
+              this.loading = false;
+            if(err) return this.error = err.toString();
+            this.title = data.title;
+            this.bg_color = data.bg_color;
+            this.content = data.content;
+            this.page_content = data.page_content;
+        });
+      }   
     }
   }
 </script>
-
-<style scoped>
-  .hero.is-info .title {
-      color: black;
-  }
-  .navbar-end {
-      color: black;
-  }
-  .hero.is-info {
-      background-color: #b3e8f9;
-      color: #fff;
-  }
-  .top-padding {
-      padding-top: 20px;
-  }
-</style>

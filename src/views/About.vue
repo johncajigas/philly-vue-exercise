@@ -1,37 +1,56 @@
 <template>
-    <div class="about">
-        <Header></Header>
-        <div class="container content-align is-overlay">
-          <h2>About</h2>
-        </div>
-        <div class="columns">
-            <div class="column is-one-quarter is-offset-4">
-                <figure class="image">
-                    <img src="../assets/images/parks-and-rec-logo.png">
-                </figure>
-            </div>
-        </div>
-        <div class="has-background-link">
-            <div class="container">
-                <Footer bgcolor="has-background-link" textcolor="has-text-white"></Footer>
-            </div>
-        </div>
-    </div>
+  <Header v-bind:bg_color="bg_color"></Header>
+  <Hero v-bind:title="title" />
+
+  <div v-html="content" class="container" />
+  <Logo />
+  <Footer />
 </template>
 
 <script>
-import Header from "@/views/Header.vue"
-import Footer from "@/components/Footer.vue"
-
+import Header from "@/components/Header.vue";
+import Footer from "@/components/Footer.vue";
+import Hero from "@/components/Hero.vue";
+import Logo from "@/components/Logo.vue";
+import { getPage } from "../api/request";
 export default {
   name: "About",
   components: {
-    Header, 
-    Footer
+    Header,
+    Hero,
+    Footer,
+    Logo,
   },
   data() {
-      return {
-      }
-  }
-}
+    return {
+      loading: false,
+      bg_color: null,
+      page_content: [],
+      content: null,
+      error: null,
+    };
+  },
+  created() {
+    this.$watch(
+      () => this.$route.params,
+      () => {
+        this.fetchData();
+      },
+      { immediate: true }
+    );
+  },
+  methods: {
+    fetchData() {
+      this.loading = true;
+      getPage(7, (data, err) => {
+        this.loading = false;
+        if (err) return (this.error = err.toString());
+        this.title = data.title;
+        this.bg_color = data.bg_color;
+        this.content = data.content;
+        this.page_content = data.page_content;
+      });
+    },
+  },
+};
 </script>
